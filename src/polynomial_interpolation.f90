@@ -3,7 +3,7 @@ module polynomial_interpolation
   implicit none
   private
 
-  public :: uniform_nodes, chebyshev_nodes
+  public :: uniform_nodes, chebyshev_nodes, read_table
   real(dp), parameter :: pi = 4.0_dp*atan(1.0_dp)
 contains
 
@@ -31,4 +31,34 @@ contains
       nodes(k) = 0.5_dp*(a+b) + 0.5_dp*(b-a)*cos(pi*real(2*k+1,dp)/real(2*n+2, dp))
     end do
   end function chebyshev_nodes
+
+  subroutine read_table(filename, a, b, n, f)
+    character(len=*), intent(in) :: filename ! Файл для чтения
+    real(dp), intent(out) :: a, b ! Начало и конец интервалов интерполирования
+    integer, intent(out) :: n ! Количество интервалов
+    real(dp), intent(out), allocatable :: f(:) ! значение функции в узлах
+
+    integer :: iostatus, iunit, i
+    character(len=256) :: line ! для чтения первой строки
+
+    open(newunit=iunit, file=filename, status='old', &
+    action = 'read', iostat=iostatus)
+    if (iostatus /= 0) then
+      error stop 'Error occured while opening file'
+    end if
+    read(iunit, '(a)', iostat=iostatus) line
+    if (iostatus /= 0) then
+      error stop 'Error occured while reading line'
+    end if
+    read(line(2:), *) n
+    read(iunit, *) a, b
+
+    allocate(f(0:n))
+
+    do i = 0, n
+      read(iunit, *) f(i)
+    end do
+    
+    close(iunit)
+  end subroutine read_table
 end module polynomial_interpolation
