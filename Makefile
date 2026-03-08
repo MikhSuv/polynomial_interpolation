@@ -43,7 +43,14 @@ $(BUILDDIR)/polynomial_interpolation.o: $(BUILDDIR)/precision_mod.o
 $(MAIN_OBJ): $(BUILDDIR)/precision_mod.o $(BUILDDIR)/polynomial_interpolation.o
 $(TEST_OBJ): $(BUILDDIR)/precision_mod.o $(BUILDDIR)/polynomial_interpolation.o
 
-.PHONY: all clean
+chebyshev : $(MAIN_EXE) chebyshev.dat plot_result.plt
+	./$(MAIN_EXE) chebyshev
+	gnuplot -e "datafile='res_chebyshev.dat'" plot_result.plt
+
+uniform : $(MAIN_EXE) uniform.dat plot_result.plt
+	./$(MAIN_EXE) uniform
+	gnuplot -e "datafile='res_uniform.dat'" plot_result.plt
+.PHONY: all clean chebyshev uniform
 
 clean:
 	rm -rf $(BUILDDIR) $(MAIN_EXE) $(TEST_EXE)
