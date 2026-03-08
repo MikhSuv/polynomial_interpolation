@@ -10,7 +10,7 @@ program main
   integer :: q = 100 
 
   argc = command_argument_count()
-  if (argc < 1) error stop "Usage: ./prog <chebyshev|uniform> [q]"
+  if (argc < 1) error stop "Usage: ./polyinterp <chebyshev|uniform> [q]"
   call get_command_argument(1, line)
   arg = trim(line)
   if (argc == 2) then 
@@ -27,7 +27,7 @@ program main
     nodes = uniform_nodes(a, b, n)
     output_file = "res_uniform.dat"
   else 
-    error stop "Usage: ./prog <chebyshev|uniform> [q]"
+    error stop "Usage: ./polyinterp <chebyshev|uniform> [q]"
   end if
 
   x = uniform_nodes(a, b, n*q)
