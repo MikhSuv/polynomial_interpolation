@@ -5,7 +5,6 @@ program check
 
   integer :: n = 10
   integer :: q = 100
-  real(dp) :: a, b
   real(dp), dimension(:), allocatable :: f, nodes, val, x
 
   ! sin на [-2, 3]

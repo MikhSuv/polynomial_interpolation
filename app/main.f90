@@ -2,7 +2,7 @@ program main
   use precision_mod
   use polynomial_interpolation
   implicit none
-  integer :: n, argc, i
+  integer :: n, argc
   character(len=256) :: line
   character(len=:), allocatable :: output_file, arg
   real(dp) :: a, b
