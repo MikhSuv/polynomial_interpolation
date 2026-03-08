@@ -5,7 +5,6 @@
 ## Основная программа `polyinterp`
 
 Использование:
-````
 ```bash
 ./polyinterp <chebyshev|uniform> [q]
 ```
