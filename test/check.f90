@@ -13,7 +13,7 @@ program check
   ! call write_table("sin_chebyshev.dat", nodes, f)
   x = uniform_nodes(-2.0_dp, 3.0_dp, n*q)
   val = interpolate(x, nodes, f, n)
-  call write_table("sin_res_chebyshev.dat", x, val)
+  call write_table("res_sin_chebyshev.dat", x, val)
   deallocate(f,x, nodes, val)
 
   ! f(x) = x на [-3, 5]
