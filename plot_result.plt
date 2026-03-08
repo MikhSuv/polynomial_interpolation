@@ -1,6 +1,3 @@
-# Входной файл с результатами (два столбца: x y)
-datafile = "res_chebyshev.dat"
-
 # Выходной файл с графиком (можно изменить расширение)
 set terminal pdfcairo enhanced color font "Arial,10"
 set output "plot_result.pdf"

@@ -5,7 +5,7 @@ set title "Интерполяция"
 set xlabel "x"
 set ylabel "f(x)"
 
-plot "sin_res_chebyshev.dat" using 1:2 with points  pt 1 lc rgb "red" title "Чебышевская сетка", \
+plot "res_sin_chebyshev.dat" using 1:2 with points  pt 1 lc rgb "red" title "Чебышевская сетка", \
 sin(x) with lines lc rgb "blue" title "sin(x)"
 
 plot "res_x_uniform.dat" using 1:2 with points pt 1 lc rgb "red" title "Равномерная сетка", \
