@@ -29,7 +29,7 @@ contains
     integer :: k
 
     do k = 0, n
-      nodes(k) = 0.5_dp*(a+b) + 0.5_dp*(b-a)*cos(pi*real(2*k+1,dp)/real(2*n+2, dp))
+      nodes(n-k) = 0.5_dp*(a+b) + 0.5_dp*(b-a)*cos(pi*real(2*k+1,dp)/real(2*n+2, dp))
     end do
   end function chebyshev_nodes
 
